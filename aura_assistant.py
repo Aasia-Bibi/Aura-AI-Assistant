@@ -9,7 +9,6 @@ import uuid
 from datetime import datetime, date
 
 # ---------------------------------------------------------------------------
-# ---------------------------------------------------------------------------
 # CONFIG
 # ---------------------------------------------------------------------------
 st.set_page_config(
@@ -52,15 +51,24 @@ st.markdown("""
 
     #MainMenu, footer, header {visibility: hidden;}
 
-    /* Sidebar: fixed width, always visible — no transform/position hacks */
+    /* Sidebar: fixed width only. The expand/collapse arrow is intentionally
+       left visible and untouched, so the sidebar can always be reopened
+       if Streamlit auto-collapses it on a narrow viewport. */
     section[data-testid="stSidebar"] {
         min-width: 320px !important;
         max-width: 320px !important;
     }
 
-    /* Hide only the collapse arrow icon so users can't accidentally close it */
+    /* Style (not hide) the collapse/expand control so it matches the theme */
     [data-testid="collapsedControl"] {
-        display: none !important;
+        background-color: #8b5cf6 !important;
+        border-radius: 8px !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    [data-testid="collapsedControl"] svg {
+        fill: #ffffff !important;
+        color: #ffffff !important;
     }
 
     .aura-header {
@@ -651,7 +659,7 @@ with st.sidebar:
     st.markdown(
         """<div class="sidebar-footer-text">
         Built with 💜 using Streamlit & Groq Cloud API<br>
-        <a href="https://github.com/Aasia-Bibi?tab=repositories" target="_blank">GitHub</a> | <a href="https://www.linkedin.com/in/aasia-bibi-8276502b8/" target="_blank">LinkedIn</a>
+        <a href="your-github-link-here" target="_blank">GitHub</a> | <a href="https://www.linkedin.com/in/aasia-bibi-8276502b8/" target="_blank">LinkedIn</a>
         </div>""",
         unsafe_allow_html=True
     )
@@ -800,7 +808,7 @@ st.markdown('<hr class="section-divider">', unsafe_allow_html=True)
 st.markdown(
     """<div class="page-footer">
     ✨ Aura — Personal AI Assistant · Built with 💜 using Streamlit & Groq Cloud API<br>
-    <a href="https://github.com/Aasia-Bibi?tab=repositories" target="_blank">GitHub</a> | <a href="https://www.linkedin.com/in/aasia-bibi-8276502b8/" target="_blank">LinkedIn</a>
+    <a href="your-github-link-here" target="_blank">GitHub</a> | <a href="https://www.linkedin.com/in/aasia-bibi-8276502b8/" target="_blank">LinkedIn</a>
     </div>""",
     unsafe_allow_html=True
 )

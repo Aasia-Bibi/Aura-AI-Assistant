@@ -1,0 +1,4 @@
+.streamlit/secrets.toml
+reminders.json
+__pycache__/
+.vscode/
